@@ -31,29 +31,31 @@ const employees = [
   },
 ];
 
-function bonusPercentage() {
-  for (person of employees) {
-    if (person.reviewRating <= 2) {
-      console.log('No bonus :(');
-    } else if (person.reviewRating === 3) {
-      0.04 * person.annualSalary;
-    }
-  }
-}
-
-bonusPercentage();
-
 function bonusCalculation(employee) {
+  const newArray = [];
   const people = {
     name: employee.name,
     bonusPercentage: 0,
     totalCompensation: 0,
     totalBonus: 0,
   };
-  for (people of employees) {
-    console.log(people);
+
+  // totalBonus for each employee, output to their dot operator value
+  for (person of employee) {
+    // if statement for person.reviewRating is less than or equal to 2 receive no bonus
+    if (person.reviewRating <= 2) {
+      people.totalBonus = 0;
+      newArray.push(people);
+      // condition for a rating of 3
+    } else if (person.reviewRating === 3) {
+      people.totalBonus = 0.04 * employee.annualSalary;
+      newArray.push(people);
+    }
   }
+  return newArray;
 }
+
+console.log(bonusCalculation(employees));
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
